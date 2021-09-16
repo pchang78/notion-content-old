@@ -1,0 +1,9 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+
+
+table.data { border-collapse: collapse; }
+table.data td, table.data th { border: 1px solid #CCC; padding: 8px 10px; font-size: 16px; }
