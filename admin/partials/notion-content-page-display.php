@@ -38,12 +38,10 @@
 	[notion_content id=<?php echo $content_row->id; ?>]
 	</td>
 	<td>
-
 	<small>
-	<a href="<?php echo plugin_dir_url( __FILE__ ); ?>/../../../view_content.php?page_id=<?php echo $content_row->page_id; ?>" target="_blank">View Content</a> |
-	<a href="admin.php?page=notion-content&action=refresh_content&page_id=<?php echo $content_row->page_id; ?>">Refresh Content</a>
+		<a href="admin.php?page=notion-content&action=view_content&page_id=<?php echo $content_row->page_id; ?>">View Content</a> |
+		<a href="admin.php?page=notion-content&action=refresh_content&page_id=<?php echo $content_row->page_id; ?>">Refresh Content</a>
 	</small>
-
 	</td>
 </tr>
 <?php endforeach; ?>

@@ -160,6 +160,13 @@ class Notion_Content_Admin {
 		}
 	}
 
+	private function display_content($page_id = 0) {
+		global $wpdb;
+		$table_name = $wpdb->prefix . "notion_content";
+		$my_content = $wpdb->get_row( "SELECT * FROM $table_name WHERE page_id='$page_id'" );
+		$text = $my_content->page_content;
+		return $text;
+	}
 
 
 	private function refresh_notion_content($page_id, $return_content = false) {
@@ -268,12 +275,21 @@ class Notion_Content_Admin {
 		global $wpdb;
 		$table_name = $wpdb->prefix . "notion_content";
 		switch($_GET["action"]) {
+			case "view_content":
+
+
+				$output = $this->display_content($_GET["page_id"]);
+				include_once("partials/notion-content-output.php");
+				break;
+
 			case "refresh_content":
 				$this->refresh_notion_content($_GET["page_id"]);
 				$url = "?page=notion-content";
 				echo "<script> window.location.href='$url'; </script>";
 				exit;
 				break;
+
+
 			case "refresh_list":
 				$this->refresh_notion_page_list();
 				$url = "?page=notion-content";
