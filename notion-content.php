@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Notion Content
  * Plugin URI:        https://www.patrickchang.com/wp/notion
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Plugin for displaying simple content from Notion using the Notion API.
  * Version:           1.0.0
  * Author:            Patrick Chang
  * Author URI:        https://patrickchang.com

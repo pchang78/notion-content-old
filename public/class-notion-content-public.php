@@ -100,12 +100,10 @@ class Notion_Content_Public {
 
 	}
 
-
 	public function register_shortcodes() {
 		add_shortcode( 'notion_content', array( $this, 'display_notion_content') );
 		//add_shortcode( 'anothershortcode', array( $this, 'another_shortcode_function') );
 	}
-
 
 	// [bartag foo="foo-value"]
 	function display_notion_content( $atts ) {
@@ -115,19 +113,23 @@ class Notion_Content_Public {
 		$id = $a["id"];
 		$my_content = $wpdb->get_row( "SELECT * FROM $table_name WHERE id = $id" );
 		$time= $my_content->time;
-
-		$cut_off = date("Y-m-d H:i:s", strtotime("-5 minutes"));
-		if($time < $cut_off) {
+		if (!function_exists('settings_fields')) {
+			$plugin_settings = $wpdb->get_row( "SELECT * FROM " . $wpdb->prefix . "options WHERE option_name = 'notion_refresh_interval'");
+			$notion_refresh_interval = $plugin_settings->option_value;
+			if(!$notion_refresh_interval) {
+				$notion_refresh_interval = "5";
+			}
+		}
+		$cut_off = date("Y-m-d H:i:s", strtotime("-$notion_refresh_interval minutes"));
+		if($notion_refresh_interval != "None" && $time < $cut_off) {
 			$page_id = $my_content->page_id;
 			$plugin_admin = new Notion_Content_Admin( $this->plugin_name, $this->version );
 			$text = $plugin_admin->refresh_notion_content_pub($page_id);
-
 		}
 		else {
 			$text = $my_content->page_content;
 		}
 		return $text;
 	}
-
 
 }

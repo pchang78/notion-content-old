@@ -24,6 +24,28 @@ You will need to setup a Notion
 
 ---
 
+## Installation
+
+1. Install plugin and activate plugin in Wordpress
+2. Go to Notion Content -> Setup in the Wordpress admin.
+3. Enter in the Notion API Key (aka Internal Integration Token)
+4. Enter in the link to the Notion Database.
+
+
+## Usage
+1. Go to Notion Content -> Page Content and click on the "Refresh List" link.
+2. The data in your Notion database should now appear 
+3. Copy and Paste the shortcode to be used in your Wordpress Post or Page.
+
+
+
+## Notion Content Updates
+Any changes to your Notion content will not refresh on your Wordpress site right away.  It will be updated on the Wordpress site after 5 minutes automatically.  It can also be manually updated in the Wordpress Admin by clicking on the "Refresh Content" link.  In future updates, this time period will be configurable.  Limiting the update time reduces the amount of API calls to Notion and also improves performance in Wordpress.
+
+
+
+---
+
 ## Supported Notion Blocks
 - Heading 1
 - Heading 2

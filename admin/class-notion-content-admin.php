@@ -106,14 +106,15 @@ class Notion_Content_Admin {
 	public function add_plugin_admin_menu() {
 		// add_options_page( 'Email Press Settings', 'Email Press Release', 'manage_options', $this->plugin_name, array($this, 'display_plugin_setup_page'));
 		add_menu_page('Notion Content Settings', 'Notion Content', 'edit_pages', 'notion-content', array($this,'display_page_content_setup'));
-                add_submenu_page('notion-content', 'Notion Page Content', 'Page Content', 'edit_pages', 'notion-content', array($this, 'display_page_content_setup'));
-                add_submenu_page('notion-content', 'Notion Content Setup', 'Setup', 'edit_pages', 'notion-content-setup', array($this, 'display_plugin_setup_page'));
+		add_submenu_page('notion-content', 'Notion Page Content', 'Page Content', 'edit_pages', 'notion-content', array($this, 'display_page_content_setup'));
+		add_submenu_page('notion-content', 'Notion Content Setup', 'Setup', 'edit_pages', 'notion-content-setup', array($this, 'display_plugin_setup_page'));
 		register_setting("notion_content_plugin", "notion_api_key");
 		register_setting("notion_content_plugin", "notion_content_database");
-        }
+		register_setting("notion_content_plugin", "notion_refresh_interval");
+	}
 
-        public function display_plugin_setup_page() {
-                global $post;
+	public function display_plugin_setup_page() {
+		global $post;
 		include_once("partials/notion-content-setup-display.php");
 	}
 
@@ -124,11 +125,7 @@ class Notion_Content_Admin {
 		$api = esc_attr( get_option('notion_api_key'));
 		$url = esc_attr( get_option('notion_content_database'));
 
-
-
 		$dID = array_shift(explode("?", str_replace("https://www.notion.so/", "", $url)));
-
-
 
 		$database_id = substr($dID, 0, 8)."-".substr($dID, 8, 4)."-".substr($dID, 12, 4)."-".substr($dID, 16, 4)."-".substr($dID, 20, 12);
 		$ch = curl_init();
