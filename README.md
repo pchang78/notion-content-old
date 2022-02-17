@@ -45,15 +45,14 @@ Any changes to your Notion content will not refresh on your Wordpress site right
 
 
 ---
-
 ## Supported Notion Blocks
 - Heading 1
 - Heading 2
 - Heading 3
 - Bullet Lists
 - Numbered List
+- To Do
+- Divider
+- Quote
+- Callout
 
-
-## Elements that are not supported by the Notion API
-- Dividers
-- Images

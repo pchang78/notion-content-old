@@ -195,6 +195,7 @@ class Notion_Content_Admin {
 		foreach($arrResult["results"] AS $block_row) {
 			$block_content = "";
 			$block_type = $block_row["type"];
+			$block_id = $block_row["id"];
 			foreach($block_row[$block_type]["text"] AS $block_text) {
 				reset($arrAnnotations);
 				$open_tag = "";
@@ -228,6 +229,18 @@ class Notion_Content_Admin {
 					break;
 				case "paragraph":
 					$block_content = "$pre<p>$block_content</p>\n";
+					break;
+				case "quote":
+					$block_content = "$pre<blockquote>$block_content</blockquote>\n";
+					break;
+				case "to_do":
+					$block_content = "\t<input type='checkbox' name='$block_id' id='$block_id'> $block_content<br>\n";
+					break;
+				case "divider":
+					$block_content = "<hr>\n";
+					break;
+				case "callout":
+					$block_content = "$pre<div class='callout'>$block_content</div>\n";
 					break;
 				case "bulleted_list_item":
 					if(!$bulleted_list_item) {
