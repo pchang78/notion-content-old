@@ -1,5 +1,10 @@
 # notion-content
 
+I have restarted this project in a new repository. It is bigger, better, and a lot more cleaner.
+
+[https://github.com/pchang78/notion-content]https://github.com/pchang78/notion-content
+
+
 ## Description
 Wordpress Plugin for displaying content from Notion using the Notion API.  This plugin assumes you have some knowledge of [Notion](https://notion.so/) and know how to install Wordpress plugins.
 
