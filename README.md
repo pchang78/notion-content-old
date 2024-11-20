@@ -2,7 +2,7 @@
 
 I have restarted this project in a new repository. It is bigger, better, and a lot more cleaner.
 
-[https://github.com/pchang78/notion-content]https://github.com/pchang78/notion-content
+https://github.com/pchang78/notion-content
 
 
 ## Description
