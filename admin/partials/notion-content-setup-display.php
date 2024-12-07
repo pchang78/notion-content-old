@@ -43,10 +43,10 @@ do_settings_sections( 'notion_content_plugin' );
         <td nowrap><strong>*Refresh Interval: </strong></td>
         <td> 
                 <select name="notion_refresh_interval">
-                        <option value="5" <?php selected(get_option('notion_refresh_interval'), "5"); ?>>5 mintues</option>
-                        <option value="10" <?php selected(get_option('notion_refresh_interval'), "10"); ?>>10 mintues</option>
-                        <option value="15" <?php selected(get_option('notion_refresh_interval'), "15"); ?>>15 mintues</option>
-                        <option value="30" <?php selected(get_option('notion_refresh_interval'), "15"); ?>>30 mintues</option>
+                        <option value="5" <?php selected(get_option('notion_refresh_interval'), "5"); ?>>5 minutes</option>
+                        <option value="10" <?php selected(get_option('notion_refresh_interval'), "10"); ?>>10 minutes</option>
+                        <option value="15" <?php selected(get_option('notion_refresh_interval'), "15"); ?>>15 minutes</option>
+                        <option value="30" <?php selected(get_option('notion_refresh_interval'), "15"); ?>>30 minutes</option>
                         <option value="60" <?php selected(get_option('notion_refresh_interval'), "60"); ?>>1 hour</option>
                         <option value="None" <?php selected(get_option('notion_refresh_interval'), "None"); ?>>No automatic refresh</option>
                 </select>
